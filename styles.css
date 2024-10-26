@@ -1,27 +1,190 @@
+:root {
+  --blue-color: #1a73e8;
+  --darkblue-color: #1557b0;
+  --red-color: #dc3545;
+  --darkred-color: #c82333;
+  --background-color: #f5f5f5;
+  --light-gray-color: #666;
+  --dark-gray-color: #444;
+  --toggle-read-background-color: #d4edda;
+  --toggle-read-color: #155724;
+  --toggle-unread-background-color: #f8d7da;
+  --toggle-unread-color: #721c24;
+  --toggle-read-hover-color: #c3e6cb;
+  --toggle-unread-hover-color: #f5c6cb;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+body {
+  padding: 20px;
+  background-color: var(--background-color);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.blue {
+  color: var(--blue-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.main-btn {
+  background-color: var(--blue-color);
+  color: white;
+  font-weight: bold;
+}
+
+.main-btn:hover {
+  background-color: var(--darkblue-color);
+}
+
+dialog {
+  padding: 20px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* Center the dialog */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+
+  /* Ensure proper sizing */
+  min-width: 300px;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+form {
+  display: grid;
+  gap: 15px;
+}
+
+.form-group {
+  display: grid;
+  gap: 5px;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  background-color: var(--red-color);
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: var(--darkred-color);
 }
 
 .books {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
 .book-card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: white;
+  border-radius: 8px;
   padding: 15px;
-  width: 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
-.main-button {
-  padding: 5px 10px;
-  margin-top: 10px;
+.book-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-/* .book-card h2 {
-  margin-top: 0;
-} */
+.book-author {
+  color: var(--light-gray-color);
+  margin-bottom: 8px;
+}
+
+.book-details {
+  font-size: 0.9rem;
+  color: var(--dark-gray-color);
+  margin-bottom: 8px;
+}
+
+.toggle-read-btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.toggle-read-btn.read {
+  background-color: var(--toggle-read-background-color);
+  color: var(--toggle-read-color);
+}
+
+.toggle-read-btn.read:hover {
+  background-color: var(--toggle-read-hover-color);
+}
+
+.toggle-read-btn.unread {
+  background-color: var(--toggle-unread-background-color);
+  color: var(--toggle-unread-color);
+}
+
+.toggle-read-btn.unread:hover {
+  background-color: var(--toggle-unread-hover-color);
+}
+
+.delete-btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: var(--red-color);
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: var(--darkred-color);
+}
