@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  width: 200px;
+}
+
+.main-button {
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+
+/* .book-card h2 {
+  margin-top: 0;
+} */
