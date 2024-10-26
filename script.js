@@ -33,6 +33,7 @@ function toggleReadStatus(index) {
   displayLibrary();
 }
 
+// Function to create a DOM element for a book card
 function createBookCard(book, index) {
   const bookCard = document.createElement("div");
   bookCard.classList.add("book-card");
@@ -51,6 +52,7 @@ function createBookCard(book, index) {
   return bookCard;
 }
 
+// Function to display all books in the library
 function displayLibrary() {
   books.innerHTML = '';
 
@@ -60,7 +62,7 @@ function displayLibrary() {
   });
 }
 
-// Sample initial books
+// Add sample books to the library
 addBookToLibrary("1984", "George Orwell", 328, true);
 addBookToLibrary("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 443, true);
 addBookToLibrary("The Razor's Edge", "W. Somerset Maugham", 314, false);
@@ -77,11 +79,12 @@ newBookBtn.addEventListener("click", () => {
   bookDialog.showModal();
 });
 
+// Close the dialog when clicking Cancel button
 CancelBtn.addEventListener("click", () => {
   bookDialog.close();
 })
 
-// Click outside modal to close
+// Close the dialog when clicking outside the modal
 window.addEventListener("click", (e) => {
   if (e.target === bookDialog) {
     bookDialog.close();
@@ -99,7 +102,7 @@ bookForm.addEventListener("submit", (e) => {
   displayLibrary();
 });
 
-// Delete a book and toggle the read status of a book
+// Event delegation for delete and toggle read status buttons
 books.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-btn")) {
     const index = e.target.closest(".book-card").dataset.index;
@@ -110,6 +113,7 @@ books.addEventListener("click", (e) => {
   }
 });
 
+// Event listeners for hover effects on toggle read status buttons
 books.addEventListener("mouseover", handleToggleReadBtnHover);
 books.addEventListener("mouseout", handleToggleReadBtnHover);
 
@@ -124,12 +128,12 @@ function handleToggleReadBtnHover(event) {
       button.style.backgroundColor = book.read ? TOGGLE_UNREAD_HOVER_COLOR : TOGGLE_READ_HOVER_COLOR;
       button.textContent = book.read ? "Mark as unread" : "Mark as read";
     } else {
-      // On mouseout, revert to the original color
+      // On mouseout, revert to the original text and color
       button.style.backgroundColor = book.read ? TOGGLE_READ_BACKGROUND_COLOR : TOGGLE_UNREAD_BACKGROUND_COLOR;
       button.textContent = book.read ? "Read" : "Not Read";
     }
   }
 }
 
-
+// Initial display of the library
 displayLibrary();
