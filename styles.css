@@ -69,7 +69,7 @@ dialog {
   margin: 0;
 
   /* Ensure proper sizing */
-  min-width: 300px;
+  min-width: 500px;
   max-width: 90vw;
   max-height: 90vh;
   overflow-y: auto;
@@ -121,7 +121,7 @@ input[type="number"] {
 
 .books {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
 
