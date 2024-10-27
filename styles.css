@@ -113,6 +113,7 @@ input[type="number"] {
 .cancel-btn {
   background-color: var(--red-color);
   color: white;
+  font-weight: bold;
 }
 
 .cancel-btn:hover {
